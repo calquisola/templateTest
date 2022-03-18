@@ -1,7 +1,7 @@
 name: Process order
 on:
   issues:
-    types: opened
+    types: [opened,labeled]
 
 concurrency: 'main'
 jobs:
@@ -19,6 +19,8 @@ jobs:
         id: issue-parser
         with:
           template-path: .github/ISSUE_TEMPLATE/add_dev_user.yml
+      - run: echo '${{  label }}' > label.txt
+      - run: echo label.txt
       - run: echo '${{  github.event.issue.label }}' > event.json
       - run: cat event.json
       - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > user.json
