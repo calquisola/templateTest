@@ -14,8 +14,13 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '16'
+      - name: Dump GitHub context
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: |
+        echo "$GITHUB_CONTEXT"
 
-      - uses: stefanbuck/github-issue-praser@v2
+      - uses: stefanbuck/github-issue-parser@v2
         id: issue-parser
         with:
           template-path: .github/ISSUE_TEMPLATE/add_dev_user.yml
