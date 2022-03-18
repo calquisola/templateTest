@@ -19,8 +19,8 @@ jobs:
         id: issue-parser
         with:
           template-path: .github/ISSUE_TEMPLATE/add_dev_user.yml
-      - run: echo '${{  github.event }}'
+      - run: echo '${{  github.event }}' > event.json
+      - run: cat event.json
       - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > user.json
-
       - run: cat user.json
       
