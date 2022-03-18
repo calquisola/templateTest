@@ -24,10 +24,19 @@ jobs:
         id: issue-parser
         with:
           template-path: .github/ISSUE_TEMPLATE/add_dev_user.yml
-      - run: echo '${{ github.event.label }}' > label.txt
-      - run: echo label.txt
-      - run: echo '${{  github.event.issue.label }}' > event.json
-      - run: cat event.json
-      - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > user.json
-      - run: cat user.json
+      - name: Get email
+        - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > user.json
+        - run: cat user.json
+      - name: Parse added and removed users
+        run: |
+          mkdir pst_amt_dynamodb
+          python scripts/format_request.py user.json users pst_amt_dynamodb
+      - name:  Add/Remove DynamoDB Items
+        run: |
+          aws dynamodb batch-write-item --request-items file://pst_amt_dynamodb/add_user.json
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: 'us-east-1'    
+      
       
