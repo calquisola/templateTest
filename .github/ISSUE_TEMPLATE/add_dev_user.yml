@@ -1,7 +1,7 @@
 name: Enable User (DEV)
 description: Enable a user in Dev AMS.
 title: "[Add User]: <USER>"
-labels: ["onboarding", "dev"]
+labels: ["onboarding"]
 assignees:
   - calquisola
 body:
