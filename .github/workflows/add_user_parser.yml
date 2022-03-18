@@ -6,7 +6,7 @@ on:
 concurrency: 'main'
 jobs:
   place_order:
-    if: ${{ github.event.label.name == 'onboarding' }}
+    
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -19,7 +19,7 @@ jobs:
         id: issue-parser
         with:
           template-path: .github/ISSUE_TEMPLATE/add_dev_user.yml
-
+      - run: echo '${{  github.event }}'
       - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > user.json
 
       - run: cat user.json
