@@ -1,0 +1,39 @@
+name: Application Integration Request
+description: |
+  Filling out this request provides the Access Management Team with your intent to
+  integration an application with the Access Management Solution.
+title: "[Integration Request]: "
+labels: ["integration"]
+assignees:
+  - kjduensing
+  - calquisola
+  - ken-non
+  - kylesoskin
+body:
+  - type: input
+    id: clientId
+    attributes:
+      label: Application Config Name
+      description: This name should be human-readable, and relate to the application's functionality. However, it does not have to exactly match any existing application or module name you have set up.
+      placeholder: ex. Firebase Clone, My App, Local App Test 1
+    validations:
+      required: true
+  - type: input
+    id: redirectUri
+    attributes:
+      label: Redirect URI
+      description: The redirect URI specifies a location to return to after authentication is complete.
+      placeholder: ex. http://localhost:3000/authed, https://example.com/callback
+    validations:
+      required: true
+  - type: dropdown
+    id: protocol
+    attributes:
+      label: Identity Protocol
+      description: Your application will likely support either OIDC or SAML. AMT recommends using OIDC because of its RESTful, API-first approach to authentication. However, some factors may require that you choose SAML, especially for off-the-shelf products where you may have no choice.
+      options:
+        - OIDC
+        - SAML
+    validations: 
+      required: true
+

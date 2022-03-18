@@ -1,0 +1,28 @@
+
+name: General Support Request
+description: |
+  A catch all request for general support. Please be detailed and specific.
+title: "[General Support]: "
+labels: ["general support"]
+assignees:
+  - kjduensing
+  - calquisola
+  - ken-non
+  - kylesoskin
+body:
+  - type: input
+    id: clientId
+    attributes:
+      label: Client ID
+      description: If you have a client ID, please provide it here.
+      placeholder: ex. firebase-clone, my-app, local-test-app-1
+    validations:
+      required: false
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Please describe why you're looking for help. The more detailed and specific this description is, the better we can help.
+    validations: 
+      required: true
+

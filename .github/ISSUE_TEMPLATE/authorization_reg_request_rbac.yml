@@ -1,0 +1,27 @@
+name: Authorization Request (RBAC)
+description: |
+  Filling out this request provides the Access Management Team with details about the roles used by your application to grant access to certain features, based on roles.
+title: "[Authorization Registration RBAC]"
+labels: ["integration", "authorization", "rbac"]
+assignees:
+  - kjduensing
+  - calquisola
+  - ken-non
+  - kylesoskin
+body:
+  - type: input
+    id: clientId
+    attributes:
+      label: Client ID
+      description: The client ID is the identifier used to make authentication requests to AMS. You should have been provided this by AMT, but please reach out if you need help finding it.
+      placeholder: ex. firebase-clone, my-app, local_test-1
+    validations:
+      required: true
+  - type: textarea
+    id: roles
+    attributes:
+      label: Roles
+      description: These roles are used by your application to determine access to certain features. Comma or newline separated, please. 
+      placeholder: ex. Admin,Editor,Viewer
+    validations:
+      required: true

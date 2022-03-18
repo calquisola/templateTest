@@ -1,0 +1,16 @@
+name: Enable User (DEV)
+description: Enable a user in Dev AMS.
+title: "[Add User]: <USER>"
+labels: ["onboarding", "dev"]
+assignees:
+  - calquisola
+body:
+  - type: input
+    id: email
+    attributes:
+      label: User Email
+      description: For simplicity, please use the email you used for your login.gov account
+      placeholder: ex. me@va.gov, you@test.com
+    validations:
+      required: true
+
