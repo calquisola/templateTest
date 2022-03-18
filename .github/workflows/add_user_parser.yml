@@ -6,7 +6,7 @@ on:
 concurrency: 'main'
 jobs:
   place_order:
-    if: ${{ label == 'onboarding' }}
+    if: ${{ github.event.label.name == 'onboarding' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
