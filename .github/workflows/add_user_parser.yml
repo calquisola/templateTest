@@ -25,8 +25,9 @@ jobs:
         with:
           template-path: .github/ISSUE_TEMPLATE/add_dev_user.yml
       - name: Get email
-        - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > user.json
-        - run: cat user.json
+        run: | 
+            echo '${{ steps.issue-parser.outputs.jsonString }}' > user.json
+            cat user.json
       - name: Parse added and removed users
         run: |
           mkdir pst_amt_dynamodb
