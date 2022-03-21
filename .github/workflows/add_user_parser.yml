@@ -20,7 +20,7 @@ jobs:
         run: |
           echo "$GITHUB_CONTEXT"
 
-      - uses: stefanbuck/github-issue-parser@ef76e9c47f5e2fd68ae29860970ecb40c687752f
+      - uses: stefanbuck/github-issue-parser@v2
         id: issue-parser
         with:
           template-path: .github/ISSUE_TEMPLATE/add_dev_user.yml
@@ -40,7 +40,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: 'us-east-1'    
       - name: Close Issue
-        uses: peter-evans/close-issue@a2a8c6a06a43191c71ebc39eec8ead0170ffadf4
+        uses: peter-evans/close-issue@v1
         with:
           comment: |
             Hi! You have been added.
