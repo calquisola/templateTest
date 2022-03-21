@@ -28,7 +28,7 @@ jobs:
         run: | 
             echo '${{ steps.issue-parser.outputs.jsonString }}' > user.json
             cat user.json
-      - name: Parse added and removed users
+      - name: Format Json for aws cli
         run: |
           mkdir pst_amt_dynamodb
           python scripts/format_request.py user.json users pst_amt_dynamodb
@@ -39,5 +39,10 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: 'us-east-1'    
-      
+      - name: Close Issue
+        uses: peter-evans/close-issue@v1
+        with:
+          comment: |
+            Hi! You have been added.
+           
       
