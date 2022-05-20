@@ -13,12 +13,12 @@ body:
       placeholder: ex. me@va.gov, you@test.com
     validations:
       required: true
-- type: dropdown
-  attributes:
-    label: Environment
-    description: Which environment do you want to be added?
-    multiple: false
-    options:
-      - label: Dev
-      - label: Utility  
+  - type: dropdown
+    attributes:
+      label: Environment
+      description: Which environment do you want to be added?
+      multiple: false
+      options:
+        - label: Dev
+        - label: Utility  
 
