@@ -20,5 +20,7 @@ body:
       multiple: false
       options:
         - Dev
-        - Utility 
+        - Utility
+      validations:
+        required: true 
 
