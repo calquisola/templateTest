@@ -19,6 +19,6 @@ body:
       description: Which environment do you want to be added?
       multiple: false
       options:
-        - label: Dev
-        - label: Utility  
+        - Dev
+        - Utility 
 
