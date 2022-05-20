@@ -21,6 +21,6 @@ body:
       options:
         - Dev
         - Utility
-      validations:
-        required: true 
+    validations:
+      required: true 
 
