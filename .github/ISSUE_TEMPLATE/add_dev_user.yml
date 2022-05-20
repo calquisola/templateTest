@@ -1,5 +1,5 @@
-name: Enable User (DEV)
-description: Enable a user in Dev AMS.
+name: Enable User
+description: Add user in AMT's whitelist
 title: "[Add User]: <USER>"
 labels: ["onboarding"]
 assignees:
@@ -13,4 +13,12 @@ body:
       placeholder: ex. me@va.gov, you@test.com
     validations:
       required: true
+- type: dropdown
+  attributes:
+    label: Environment
+    description: Which environment do you want to be added?
+    multiple: false
+    options:
+      - label: Dev
+      - label: Utility  
 
