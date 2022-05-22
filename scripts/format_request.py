@@ -30,7 +30,7 @@ def parse_json(file, directory):
     user_email = data["email"]
     environment = data["environment"]
 
-    if environment == "utility":
+    if environment == "Utility":
         table_name = "users_utility"
     else:
         table_name = "users"
