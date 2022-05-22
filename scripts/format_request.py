@@ -23,11 +23,18 @@ def is_valid_email(email):
     return False
 
 
-def parse_json(file, table_name, directory):
+def parse_json(file, directory):
 
     f = open(file)
     data = json.load(f)
     user_email = data["email"]
+    environment = data["environment"]
+
+    if environment == "utility":
+        table_name = "users_utility"
+    else:
+        table_name = "users"
+
     request_list = []
     obj = {
             "PutRequest": {
@@ -52,17 +59,17 @@ def main():
 
     parser.add_argument('file', metavar='file', type=str,
                         help='json file from stefanbuck/github-issue-parser')
-    parser.add_argument('table', metavar='table', type=str,
-                        help='dynamodb table name')
+
     parser.add_argument('directory', metavar='directory', type=str,
                         help='directory where output json will be saved')
+
     args = parser.parse_args()
 
     file = args.file
-    table = args.table
+    # table = args.table
     directory = args.directory
 
-    parse_json(file, table, directory)
+    parse_json(file, directory)
 
 
 if __name__ == "__main__":
