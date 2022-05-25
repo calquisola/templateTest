@@ -8,7 +8,7 @@ body:
   - type: input
     id: email
     attributes:
-      label: User Email
+      label: User Email(s)
       description: For simplicity, please use the email you used for your login.gov account
       placeholder: ex. me@va.gov, you@test.com
     validations:
@@ -17,7 +17,7 @@ body:
     attributes:
       label: Environment
       description: Which environment do you want to be added?
-      multiple: false
+      multiple: yes
       options:
         - Dev
         - Utility
