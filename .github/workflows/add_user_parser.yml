@@ -32,6 +32,7 @@ jobs:
         run: |
           mkdir pst_amt_dynamodb
           python scripts/format_request.py user.json pst_amt_dynamodb
+          cat pst_amt_dynamodb/add_user.json
       - name:  Add/Remove DynamoDB Items
         run: |
           aws dynamodb batch-write-item --request-items file://pst_amt_dynamodb/add_user.json
