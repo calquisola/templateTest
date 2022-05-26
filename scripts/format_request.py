@@ -36,6 +36,7 @@ def parse_json(file, directory):
         table_name = "users"
 
     request_list = []
+
     emails = user_emails.split(",")
 
     for user_email in emails:
@@ -48,7 +49,7 @@ def parse_json(file, directory):
                     }
                   }
               }
-        if is_valid_email(user_email):
+        if is_valid_email(user_email.strip()):
             request_list.append(obj)
 
     create_request_json(request_list, table_name, directory)

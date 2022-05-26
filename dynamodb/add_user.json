@@ -1,1 +1,1 @@
-{"user": [{"PutRequest": {"Item": {"email": {"S": "me@va.gov"}}}}]}
+{"users": [{"PutRequest": {"Item": {"email": {"S": "carl@test.com"}}}}, {"PutRequest": {"Item": {"email": {"S": "fabio@gmail.com"}}}}]}
