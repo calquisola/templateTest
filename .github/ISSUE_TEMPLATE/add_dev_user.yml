@@ -10,7 +10,7 @@ body:
     attributes:
       label: User Email(s)
       description: For simplicity, please use the email you used for your login.gov account
-      placeholder: ex. me@va.gov, you@test.com
+      placeholder: ex. me@va.gov, for mutilple emails pls separate it with commas(eg. user1@va.gov, user2@va.gov)
     validations:
       required: true
   - type: dropdown

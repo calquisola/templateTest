@@ -27,7 +27,7 @@ def parse_json(file, directory):
 
     f = open(file)
     data = json.load(f)
-    user_email = data["email"]
+    user_emails = data["email"]
     environment = data["environment"]
 
     if environment == "Utility":
@@ -36,17 +36,21 @@ def parse_json(file, directory):
         table_name = "users"
 
     request_list = []
-    obj = {
-            "PutRequest": {
-              "Item": {
-                  "email": {
-                      "S": user_email
+    emails = user_emails.split(",")
+
+    for user_email in emails:
+        obj = {
+                "PutRequest": {
+                  "Item": {
+                      "email": {
+                          "S": user_email.strip()
+                      }
+                    }
                   }
-                }
               }
-          }
-    if is_valid_email(user_email):
-        request_list.append(obj)
+        if is_valid_email(user_email):
+            request_list.append(obj)
+
     create_request_json(request_list, table_name, directory)
 
     f.close()
