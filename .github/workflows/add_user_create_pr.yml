@@ -21,6 +21,7 @@ jobs:
         run: |
           echo' $GITHUB_CONTEXT'
           echo '${{ github.actor }}'
+          echo '${{ github.event.issue.number }}'
 
       - uses: stefanbuck/github-issue-parser@v2
         id: issue-parser
@@ -34,6 +35,5 @@ jobs:
         run: |
             python scripts/add_user_to_file.py user.json users_utility.txt
             cat users_utility.txt
-            echo '${{ github.event.issue.number }}'
-
+            
       
