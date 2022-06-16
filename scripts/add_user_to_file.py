@@ -20,7 +20,7 @@ def append_users(user_file, new_emails):
     for email in new_emails:
         f.write(email.strip() + "\n")
         print(email.strip())
-    #f.writelines("")
+    # f.writelines("")
     f.close()
 
 

@@ -1,5 +1,5 @@
-name: Enable User
-description: Add user in AMT's whitelist
+name: Add user in Utility
+description: Add user in utility whitelist
 title: "[Add User]: <USER>"
 labels: ["onboarding-utility"]
 assignees:
