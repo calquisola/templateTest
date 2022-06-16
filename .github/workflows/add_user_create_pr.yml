@@ -1,0 +1,36 @@
+name: Parse Emails in utility and creates a PR
+on:
+  issues:
+    types: [opened]
+
+concurrency: 'main'
+jobs:
+  place_order:
+    if: contains(github.event.issue.labels.*.name, 'onboarding-uy')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
+          echo "$GITHUB_CONTEXT"
+
+      - uses: stefanbuck/github-issue-parser@v2
+        id: issue-parser
+        with:
+          template-path: .github/ISSUE_TEMPLATE/add_dev_user.yml
+      - name: Get emails
+        run: | 
+            echo '${{ steps.issue-parser.outputs.jsonString }}' > user.json
+            cat user.json
+      - name: Add emails to the utility list
+        run: |
+            python scripts/add_user_to_file.py user.json users_utility.txt
+            cat users_utility.txt
+           
+      
