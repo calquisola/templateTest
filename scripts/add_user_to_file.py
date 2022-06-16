@@ -10,7 +10,6 @@ def get_emails(file):
     data = json.load(f)
     user_emails = data["email"]
     emails = user_emails.split(",")
-    print(emails)
     f.close()
     return emails
 
@@ -19,7 +18,6 @@ def append_users(user_file, new_emails):
     f = open(user_file, "a")
     for email in new_emails:
         f.write(email.strip() + "\n")
-        print(email.strip())
     # f.writelines("")
     f.close()
 
