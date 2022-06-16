@@ -33,13 +33,5 @@ jobs:
         run: |
             python scripts/add_user_to_file.py user.json users_utility.txt
             cat users_utility.txt
-      
-      - name: Create Pull Request
-              uses: peter-evans/create-pull-request@v4
-              with:
-                commit-message: update authors
-                title: Update AUTHORS
-                body: Credit new contributors by updating AUTHORS
-                branch: update-authors
-           
+
       
