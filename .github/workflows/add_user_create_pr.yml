@@ -26,7 +26,7 @@ jobs:
           template-path: .github/ISSUE_TEMPLATE/add_dev_user.yml
       - name: Get emails
         run: | 
-            echo '${{ steps.issue-parser.outputs.jsonString }}'
+            echo '${{ steps.issue-parser.outputs }}'
             echo '${{ steps.issue-parser.outputs.jsonString }}' > user.json
             cat user.json
       - name: Add emails to the utility list
