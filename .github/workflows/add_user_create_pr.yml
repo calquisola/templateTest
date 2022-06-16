@@ -35,5 +35,13 @@ jobs:
             python scripts/add_user_to_file.py user.json users_utility.txt
             cat users_utility.txt
             echo '${{ github.event.issue.number }}'
+
+      - name: Create Pull Request
+              uses: peter-evans/create-pull-request@v4
+              with:
+                commit-message: added new utility users
+                title: '${{ github.event.issue.title }}'
+                body: '${{ github.event.issue.body }}' 
+                branch: add.utility.user.'${{ github.event.issue.number }}'
             
       
