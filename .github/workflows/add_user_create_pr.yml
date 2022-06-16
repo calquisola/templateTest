@@ -6,7 +6,7 @@ on:
 concurrency: 'main'
 jobs:
   place_order:
-    if: contains(github.event.issue.labels.*.name, 'onboarding-uy')
+    if: contains(github.event.issue.labels.*.name, 'onboarding-utility')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
