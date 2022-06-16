@@ -21,7 +21,7 @@ jobs:
         run: |
           echo' $GITHUB_CONTEXT'
           echo '${{ github.actor }}'
-          echo '${{ github.event.issue.number }}'
+          echo '${{ github.event }}'
 
       - uses: stefanbuck/github-issue-parser@v2
         id: issue-parser
