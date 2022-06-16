@@ -19,14 +19,14 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
-          echo' $GITHUB_CONTEXT'
+          echo '$GITHUB_CONTEXT'
           echo '${{ github.actor }}'
-          echo '${{ github.event }}'
+          echo '${{ github.event.issue.number }}'
 
       - uses: stefanbuck/github-issue-parser@v2
         id: issue-parser
         with:
-          template-path: .github/ISSUE_TEMPLATE/add_dev_user.yml
+          template-path: .github/ISSUE_TEMPLATE/add_utility_user.yml
       - name: Get emails
         run: | 
             echo '${{ steps.issue-parser.outputs.jsonString }}' > user.json
