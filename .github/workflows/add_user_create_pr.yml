@@ -5,8 +5,8 @@ on:
 
 concurrency: 'main'
 jobs:
+  if: contains(github.event.issue.labels.*.name, 'onboarding-utility')
   place_order:
-    if: contains(github.event.issue.labels.*.name, 'onboarding-utility')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -19,6 +19,7 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
           echo "$GITHUB_CONTEXT"
+          echo '${{ github.issue.number}}'
 
       - uses: stefanbuck/github-issue-parser@v2
         id: issue-parser
@@ -26,7 +27,6 @@ jobs:
           template-path: .github/ISSUE_TEMPLATE/add_dev_user.yml
       - name: Get emails
         run: | 
-            echo '${{ steps.issue-parser.outputs }}'
             echo '${{ steps.issue-parser.outputs.jsonString }}' > user.json
             cat user.json
       - name: Add emails to the utility list
