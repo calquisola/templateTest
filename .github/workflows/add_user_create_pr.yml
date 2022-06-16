@@ -19,6 +19,7 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
+          echo' $GITHUB_CONTEXT'
           echo '${{ github.actor }}'
 
       - uses: stefanbuck/github-issue-parser@v2
@@ -33,5 +34,6 @@ jobs:
         run: |
             python scripts/add_user_to_file.py user.json users_utility.txt
             cat users_utility.txt
+            echo '${{ github.event.issue.number }}'
 
       
