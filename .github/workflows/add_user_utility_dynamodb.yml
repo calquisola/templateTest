@@ -27,7 +27,7 @@ jobs:
       - name: Format Json for aws cli
         run: |
           mkdir pst_amt_dynamodb
-          python scripts/format_request.py user.json pst_amt_dynamodb
+          python scripts/format_request.py changes.txt pst_amt_dynamodb
           cat pst_amt_dynamodb/add_user.json
 
 
