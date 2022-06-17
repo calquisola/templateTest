@@ -8,7 +8,7 @@ on:
     - 'users_utility.txt'
 
 jobs:
-  build:
+  run:
     name: AMT dynamodb utility workflow
     runs-on: ubuntu-latest
     steps:
@@ -23,5 +23,12 @@ jobs:
           echo "$GITHUB_CONTEXT"
       - name: Parse added users
         run: |
-          git show users_utility.txt
+          git show users_utility.txt > changes.txt
+      - name: Format Json for aws cli
+        run: |
+          mkdir pst_amt_dynamodb
+          python scripts/format_request.py user.json pst_amt_dynamodb
+          cat pst_amt_dynamodb/add_user.json
+
+
       
