@@ -23,6 +23,5 @@ jobs:
           echo "$GITHUB_CONTEXT"
       - name: Parse added users
         run: |
-          git pull
           git show users_utility.txt
       
