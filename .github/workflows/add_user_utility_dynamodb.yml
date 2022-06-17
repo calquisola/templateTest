@@ -15,5 +15,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Parse added users
         run: |
+          git pull
           git show users_utility.txt
       
