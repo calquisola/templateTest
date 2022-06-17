@@ -1,0 +1,19 @@
+
+name: Update dynamodb when a new key is added or removed
+
+on:
+  push:
+    branches: [ main ]
+    paths: 
+    - 'users_utility.txt'
+
+jobs:
+  build:
+    name: AMT dynamodb utility workflow
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Parse added users
+        run: |
+          git show users_utility.txt
+      
