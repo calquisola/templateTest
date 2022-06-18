@@ -1,10 +1,4 @@
 user1@va.gov
 user2@va.gov
 fabio@gmail.com
-seb@va.gov
-carlitos@va.gov
-heelo@va.gov
-hi@va.gov
-tita@va.gov
-tito@va.gov
-ankol@va.gov
+hey@va.gov

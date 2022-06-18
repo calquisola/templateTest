@@ -24,10 +24,10 @@ jobs:
       - name: Parse added users
         run: |
           git show users_utility.txt > changes.txt
-          cat changes.txt
       - name: Format Json for aws cli
         run: |
           mkdir pst_amt_dynamodb
+          cat changes.txt
           python scripts/parse_user_list_changes.py changes.txt users pst_amt_dynamodb
           cat pst_amt_dynamodb/add_user.json
 
