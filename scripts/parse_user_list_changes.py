@@ -72,7 +72,9 @@ def main():
     directory = args.directory
 
     emails = get_added_emails(file)
+    print(emails)
     aws_json_data = format_aws_json(emails)
+    print(aws_json_data)
     create_request_json(aws_json_data, table, directory)
 
 
