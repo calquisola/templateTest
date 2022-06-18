@@ -43,6 +43,7 @@ def get_added_emails(file):
     emails = []
     f = open(file, 'r')
     for line in f:
+        print(line)
         # check if the first char is +
         if line[0] == '+':
             details = line.split('+')
