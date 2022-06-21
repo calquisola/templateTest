@@ -2,7 +2,7 @@ import json
 import re
 import argparse
 
-regex = re.compile(r'^[a-zA-Z0-9-_]+@[a-zA-Z0-9]+\.[a-z]{1,3}$')
+regex = re.compile(r'^[a-zA-Z0-9-_\.]+@[a-zA-Z0-9]+(\.[a-z]{1,3})+$')
 
 
 def create_request_json(users, table_name, directory):
@@ -46,9 +46,11 @@ def get_added_emails(file):
         print(line)
         # check if the first char is +
         if line[0] == '+':
+            print(line[0])
             details = line.split('+')
-            if is_valid_email(details[1]):
-                emails.append(details[1])
+            print()
+            if is_valid_email(details[1].strip()):
+                emails.append(details[1].strip())
     f.close()
     return emails
 
