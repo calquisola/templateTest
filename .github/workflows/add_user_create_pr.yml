@@ -45,6 +45,6 @@ jobs:
           body: |
             An automated User Access Request
             ${{ github.event.issue.body }}
-            - https://github.com/templateTest/issues/${{ github.event.issue.number }}
+            - https://github.com/calquisola/templateTest/issues/${{ github.event.issue.number }}
           labels: utility-whitelist-request
       
