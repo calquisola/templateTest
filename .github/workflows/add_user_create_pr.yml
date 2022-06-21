@@ -44,6 +44,7 @@ jobs:
           title: '${{ github.event.issue.title }}'
           body: |
             An automated User Access Request
+            ${{ github.event.issue.body }}
             - https://github.com/templateTest/issues/${{ github.event.inputs.issue_number }}
           labels: utility-whitelist-request
       
