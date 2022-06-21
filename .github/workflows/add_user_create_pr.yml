@@ -39,9 +39,11 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
-          commit-message: added new utility users
+          commit-message: added new utility users request #${{ github.event.issue.number }}
+          branch: add.utility.user.${{ github.event.issue.number }}
           title: '${{ github.event.issue.title }}'
-          body: '${{ github.event.issue.body }}' 
-          branch: add.utility.user.'${{ github.event.issue.number }}'
-          
+          body: |
+            An automated User Access Request
+            - https://github.com/templateTest/issues/${{ github.event.inputs.issue_number }}
+          labels: utility-whitelist-request
       
