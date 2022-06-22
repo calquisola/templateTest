@@ -32,8 +32,8 @@ jobs:
             cat user.json
       - name: Add emails to the utility list
         run: |
-            python scripts/add_user_to_file.py user.json users_utility.txt
-            cat users_utility.txt
+            python scripts/add_user_to_file.py user.json users/users_utility.txt
+            cat users/users_utility.txt
             echo '${{ github.event.issue.number }}'
 
       - name: Create Pull Request

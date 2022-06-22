@@ -5,7 +5,7 @@ on:
   push:
     branches: [ main ]
     paths: 
-    - 'users_utility.txt'
+    - 'users/users_utility.txt'
 
 jobs:
   run:
