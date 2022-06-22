@@ -42,6 +42,8 @@ jobs:
           commit-message: added new utility users request #${{ github.event.issue.number }}
           branch: add.utility.user.${{ github.event.issue.number }}
           title: '${{ github.event.issue.title }}'
+          reviewers: calquisola
+          assignees: calquisola
           body: |
             An automated User Access Request
             ${{ github.event.issue.body }}
