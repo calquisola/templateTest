@@ -28,7 +28,7 @@ jobs:
         run: |
           mkdir pst_amt_dynamodb
           cat changes.txt
-          python scripts/parse_user_list_changes.py changes.txt users_dev pst_amt_dynamodb
+          python scripts/parse_user_list_changes.py changes.txt users pst_amt_dynamodb
           cat pst_amt_dynamodb/add_user.json
       - name:  Add/Remove DynamoDB Items
         run: |
