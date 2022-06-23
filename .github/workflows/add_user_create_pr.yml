@@ -5,7 +5,7 @@ on:
 
 concurrency: 'main'
 jobs:
-  place_order:
+  add_user_utility:
     if: contains(github.event.issue.labels.*.name, 'onboarding-utility')
     runs-on: ubuntu-latest
     steps:
@@ -49,4 +49,48 @@ jobs:
             ${{ github.event.issue.body }}
             - https://github.com/calquisola/templateTest/issues/${{ github.event.issue.number }}
           labels: utility-whitelist-request
-      
+
+  add_user_dev:
+    if: contains(github.event.issue.labels.*.name, 'onboarding-dev')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: Dump GitHub context
+        id: context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
+          echo '$GITHUB_CONTEXT'
+          echo '${{ github.actor }}'
+          
+      - uses: stefanbuck/github-issue-parser@v2
+        id: issue-parser
+        with:
+          template-path: .github/ISSUE_TEMPLATE/add_dev_user.yml
+      - name: Get emails
+        run: | 
+            echo '${{ steps.issue-parser.outputs.jsonString }}' > user.json
+            cat user.json
+      - name: Add emails to the dev list
+        run: |
+            python scripts/add_user_to_file.py user.json users/users_dev.txt
+            cat users/users_dev.txt
+            echo '${{ github.event.issue.number }}'
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          commit-message: added new dev users request #${{ github.event.issue.number }}
+          branch: add.dev.user.${{ github.event.issue.number }}
+          title: '${{ github.event.issue.title }}'
+          reviewers: calquisola
+          assignees: calquisola
+          body: |
+            An automated User Access Request
+            ${{ github.event.issue.body }}
+            - https://github.com/calquisola/templateTest/issues/${{ github.event.issue.number }}
+          labels: dev-whitelist-request      

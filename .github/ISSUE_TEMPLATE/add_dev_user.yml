@@ -1,7 +1,7 @@
-name: Enable User
-description: Add user in AMT's whitelist
+name: Enable User in Dev
+description: Add user in dev allow list
 title: "[Add User]: <USER>"
-labels: ["onboarding"]
+labels: ["onboarding-dev"]
 assignees:
   - calquisola
 body:
@@ -13,14 +13,3 @@ body:
       placeholder: ex. me@va.gov, user@va.gov
     validations:
       required: true
-  - type: dropdown
-    attributes:
-      label: Environment
-      description: Which environment do you want to be added?
-      multiple: yes
-      options:
-        - Dev
-        - Utility
-    validations:
-      required: true 
-
