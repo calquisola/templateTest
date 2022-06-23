@@ -1,15 +1,15 @@
 
-name: Add utility user on dynamodb
+name: Add dev user on dynamodb
 
 on:
   push:
     branches: [ main ]
     paths: 
-    - 'users/users_utility.txt'
+    - 'users/users_dev.txt'
 
 jobs:
   run:
-    name: AMT dynamodb utility workflow
+    name: AMT dynamodb dev workflow
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -23,12 +23,12 @@ jobs:
           echo "$GITHUB_CONTEXT"
       - name: Parse added users
         run: |
-          git show users/users_utility.txt > changes.txt
+          git show users/users_dev.txt > changes.txt
       - name: Format Json for aws cli
         run: |
           mkdir pst_amt_dynamodb
           cat changes.txt
-          python scripts/parse_user_list_changes.py changes.txt users_utility pst_amt_dynamodb
+          python scripts/parse_user_list_changes.py changes.txt users_dev pst_amt_dynamodb
           cat pst_amt_dynamodb/add_user.json
       - name:  Add/Remove DynamoDB Items
         run: |
