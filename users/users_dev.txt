@@ -1,1 +1,2 @@
 first_dev@test.com
+dev@test.com
