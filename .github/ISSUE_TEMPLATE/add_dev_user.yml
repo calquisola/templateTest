@@ -1,6 +1,8 @@
 name: Enable User in Dev
-description: Add user in dev allow list
-title: "[Add User]: <USER>"
+description: | 
+This request is intended for Platform team members developing platform tools that authenticate with the Dev instance of Keycloak. 
+If you are a VFS team member, please request access through [this issue template](https://github.com/calquisola/templateTest/issues/new?assignees=calquisola&labels=onboarding-utility&template=add_utility_user.yml&title=%5BAdd+User%5D%3A+%3CUSER%3E)
+title: "[Add Developer]: <NAME>"
 labels: ["onboarding-dev"]
 assignees:
   - calquisola
