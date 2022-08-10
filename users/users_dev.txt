@@ -3,3 +3,4 @@ dev@test.com
 carl_dev@gmail.com
 chrono@va.gov
 druid@test.com
+vindicator@gw2.com
