@@ -42,8 +42,7 @@ jobs:
           commit-message: added new utility users request #${{ github.event.issue.number }}
           branch: add.utility.user.${{ github.event.issue.number }}
           title: '${{ github.event.issue.title }}'
-          reviewers: calquisola
-          assignees: calquisola
+          reviewers: Java Team
           body: |
             An automated User Access Request
             ${{ github.event.issue.body }}
@@ -87,8 +86,7 @@ jobs:
           commit-message: added new dev users request #${{ github.event.issue.number }}
           branch: add.dev.user.${{ github.event.issue.number }}
           title: '${{ github.event.issue.title }}'
-          reviewers: calquisola
-          assignees: calquisola
+          reviewers: Java Team
           body: |
             An automated User Access Request
             ${{ github.event.issue.body }}
