@@ -1,8 +1,10 @@
-first_dev@test.com
-dev@test.com
-fabs@test.com
+carl@test.com
 carl_dev@gmail.com
 chrono@va.gov
+dev@test.com
 druid@test.com
-vindicator@gw2.com
+embery@test.com
+fabs@test.com
+first_dev@test.com
 sebby@test.com
+vindicator@gw2.com

@@ -14,11 +14,26 @@ def get_emails(file):
     return emails
 
 
-def append_users(user_file, new_emails):
-    f = open(user_file, "a")
-    for email in new_emails:
+# get pre existing emails in an array
+def get_current_emails(user_file):
+    f = open(user_file, "r")
+    emails = []
+    for line in f:
+        emails.append(line.replace("\n", ""))
+    f.close()
+
+    return emails
+
+
+def add_users(user_file, new_emails):
+    emails = get_current_emails(user_file)
+    for new_email in new_emails:
+        emails.append(new_email.strip())
+    f = open(user_file, "w")
+    emails.sort()
+    for email in emails:
         f.write(email.strip() + "\n")
-    # f.writelines("")
+    f.writelines("")
     f.close()
 
 
@@ -32,7 +47,7 @@ def main():
     parsed_values_file = args.parsed_values
     user_file = args.user_file
     email_list = get_emails(parsed_values_file)
-    append_users(user_file, email_list)
+    add_users(user_file, email_list)
 
 
 if __name__ == "__main__":
