@@ -6,7 +6,8 @@ druid@test.com
 embery@test.com
 fabs@test.com
 first_dev@test.com
-power.reaper@dev.com
+mirage@dev.com
 power.ranger@dev.com
+power.reaper@dev.com
 sebby@test.com
 vindicator@gw2.com
