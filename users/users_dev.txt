@@ -14,3 +14,4 @@ power.ranger@dev.com
 power.reaper@dev.com
 sebby@test.com
 vindicator@gw2.com
+vision@dev.com
