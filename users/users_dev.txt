@@ -13,6 +13,7 @@ mikey.williams@tnt.com
 mirage@dev.com
 power.ranger@dev.com
 power.reaper@dev.com
+sample@dev.com
 sebby@test.com
 vindicator@gw2.com
 vision@dev.com
